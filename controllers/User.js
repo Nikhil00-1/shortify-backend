@@ -24,11 +24,9 @@ const handleSignUp = async (req, res) => {
         if (token) {
             res.clearCookie("uid", {
                 httpOnly: true,
-                secure: false, 
+                secure:process.env.NODE_ENV === "production",
                 sameSite: "lax",
             });
-            console.log("Donnnnnnnneeeeeee");
-            
         }
 
         const { name, email, password } = req.body;
@@ -61,7 +59,7 @@ const handleSignUp = async (req, res) => {
 
         res.cookie("uid", token1, {
             httpOnly: true,
-            secure: false, // set true in production with HTTPS
+            secure: process.env.NODE_ENV === "production", // set true in production with HTTPS
             sameSite: "lax",
             maxAge: 100 * 24 * 60 * 60 * 1000,
         });
@@ -91,7 +89,7 @@ const handleLogin = async (req, res) => {
 
         res.cookie("uid", token, {
             httpOnly: true,
-            secure: false, // set true in production with HTTPS
+            secure: process.env.NODE_ENV === "production", // set true in production with HTTPS
             sameSite: "lax",
             maxAge: 100 * 24 * 60 * 60 * 1000,
         });
@@ -106,7 +104,7 @@ const handleLogin = async (req, res) => {
 const handleLogOut = async (req, res) => {
     res.clearCookie("uid", {
         httpOnly: true,
-        secure: false, // set true in production with HTTPS
+        secure: process.env.NODE_ENV === "production",// set true in production with HTTPS
         sameSite: "lax",
     });
     return res.status(200).json({ flag: 1 });
