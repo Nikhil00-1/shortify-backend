@@ -24,4 +24,4 @@ app.use(cookieParser());
 app.use("/shortify",restrictToLoginUserOnly,router)
 app.use("/user",userRouter)
 
-app.listen(3000,()=>console.log(`App is running at ${PORT}`));
+app.listen(PORT,()=>console.log(`App is running at ${PORT}`));
