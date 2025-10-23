@@ -23,5 +23,8 @@ app.use(cookieParser());
 
 app.use("/shortify",restrictToLoginUserOnly,router)
 app.use("/user",userRouter)
+app.get("/check-env", (req, res) => {
+  res.json({ clientUrl: process.env.CLIENT_URL });
+});
 
 app.listen(PORT,()=>console.log(`App is running at ${PORT}`));
