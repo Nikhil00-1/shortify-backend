@@ -3,7 +3,7 @@ const express=require("express")
 
 const getRouter=express.Router()
 
-router
+getRouter
 .route("/:id")
 .get(handleUlrequest)
 
