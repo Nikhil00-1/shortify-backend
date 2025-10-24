@@ -6,7 +6,7 @@ const userRouter=express.Router()
 userRouter
 .route("/signup")
 .post(handleSignUp)
-
+    
 userRouter
 .route("/login")
 .post(handleLogin)
@@ -18,7 +18,5 @@ userRouter
 userRouter
 .route("/logStatus")
 .get(handleLogStatus)
-
-
 
 module.exports={userRouter};

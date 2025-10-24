@@ -3,6 +3,7 @@ const app=express();
 const {connectMongo}=require("./connection");
 const {router}=require("./Routes/index")
 const {userRouter}=require("./Routes/User")
+const {getRouter}=require("./Routes/getRouter")
 const cors=require("cors")
 const cookieParser=require("cookie-parser")
 const {restrictToLoginUserOnly}=require("./Middlewares/auth");
@@ -23,6 +24,7 @@ app.use(cookieParser());
 
 app.use("/shortify",restrictToLoginUserOnly,router)
 app.use("/user",userRouter)
+app.use("/",getRouter)
 
 app.get("/check-env", (req, res) => {
   res.json({ clientUrl: process.env.CLIENT_URL });

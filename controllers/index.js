@@ -29,7 +29,7 @@ const handleNewUrl=async (req,res)=>{
         visitHistory:[],
         createdBy:req.user._id,   
     });
-    const shorturl=`https://shortify-ezjl.onrender.com/shortify/${short}`
+    const shorturl=`https://shortify-ezjl.onrender.com/${short}`
     res.status(201).json({shorturl})
 };
 

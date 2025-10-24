@@ -1,4 +1,4 @@
-const {handleNewUrl,handleUlrequest}=require("../controllers/index")
+const {handleNewUrl}=require("../controllers/index")
 const {handleNewQR}=require("../controllers/QRgenerator")
 const {handlePastQr}=require("../controllers/pastQrs")
 const {handlePastLinks}=require("../controllers/pastlinks")
@@ -27,8 +27,6 @@ router
 .route("/history/qrs")
 .get(handlePastQr)
 
-router
-.route("/:id")
-.get(handleUlrequest)
+
 
 module.exports={router};
