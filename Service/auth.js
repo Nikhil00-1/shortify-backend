@@ -1,4 +1,5 @@
 const jwt=require("jsonwebtoken")
+require("dotenv").config();
 const secret="ShortIFY@***"
 
 const setUser=(user)=>{
@@ -6,11 +7,11 @@ const setUser=(user)=>{
         {
             _id:user._id,
             email:user.email,
-        },secret);
+        },JWT_SECRET );
 };
 
 const getUser=(token)=>{
-    return jwt.verify(token,secret);
+    return jwt.verify(token,JWT_SECRET);
 }
 
 module.exports={setUser,getUser}; 
